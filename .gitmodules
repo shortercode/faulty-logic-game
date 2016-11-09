@@ -1,0 +1,3 @@
+[submodule "src/doom"]
+	path = src/doom
+	url = https://github.com/shortercode/Doom-2
