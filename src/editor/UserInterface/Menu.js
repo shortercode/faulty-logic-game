@@ -1,7 +1,8 @@
-class Menu {
+class Menu extends alloy('div') {
   constructor (parent, x, y) {
-    this.element = document.createElement('div');
-    this.element.classList.add('menu');
+	super();
+    this.class.add('menu');
+	
     parent.appendChild(this.element);
     this.element.style.cssText = `left: ${x}px; top: ${y}px;`;
     this.element.focus();
@@ -17,6 +18,17 @@ class Menu {
       this.destroy();
       callback();
     };
+  }
+  
+  addSubmenu (name) {
+	  const item = document.createElement('div');
+      item.classList.add('item');
+      item.textContent = name;
+      this.element.appendChild(item);
+      item.onmouseover = () => {
+        this.destroy();
+        callback();
+      };
   }
   
   destroy () {
